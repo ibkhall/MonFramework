@@ -1,22 +1,21 @@
 <?php
+namespace Tests\Framework\Renderer;
 
-namespace Tests\Framework;
+use PHPUnit\Framework\TestCase;
+
+class PHPRendererTest extends TestCase {
 
 
-use Framework\Renderer;
-
-class RendererTest extends \PHPUnit\Framework\TestCase {
 
     private $renderer;
 
     public function setUp(){
-        $this->renderer = new Renderer();
-        $this->renderer->addPath(__DIR__. '/views');
+        $this->renderer = new PHPRenderer(__DIR__ . '/views');
     }
 
     public function testRendererTheRightPath() {
 
-        $this->renderer->addPath('blog', __DIR__. '/views');
+        $this->renderer->addPath('blog', __DIR__ . '/views');
         $content = $this->renderer->render('@blog/demo');
         $this->assertEquals('salut les gens', $content);
     }
@@ -38,4 +37,5 @@ class RendererTest extends \PHPUnit\Framework\TestCase {
         $content = $this->renderer->render('demoparams');
         $this->assertEquals('salut Marc', $content);
     }
+
 }
