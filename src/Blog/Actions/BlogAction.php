@@ -1,6 +1,9 @@
 <?php
 namespace App\Blog\Actions;
 
+use App\Blog\Table\PostTable;
+use Framework\Actions\RouterAwareAcion;
+use Framework\Router;
 use Psr\Http\Message\ServerRequestInterface;
 use Framework\Renderer\RendererInterface;
 
@@ -9,17 +12,28 @@ class BlogAction
 
 
     private $renderer;
+    /**
+     * @var Router
+     */
+    private $router;
+    /**
+     * @var PostTable
+     */
+    private $postTable;
 
-    public function __construct(RendererInterface $renderer)
+    use RouterAwareAcion;
+
+    public function __construct(RendererInterface $renderer, Router $router, PostTable $postTable)
     {
         $this->renderer = $renderer;
+        $this->router = $router;
+        $this->postTable = $postTable;
     }
 
     public function __invoke(ServerRequestInterface $request)
     {
-        $slug = $request->getAttribute('slug');
-        if ($slug) {
-            return $this->show($slug);
+        if ($request->getAttribute('id')) {
+            return $this->show($request);
         }
 
            return $this->index();
@@ -27,13 +41,24 @@ class BlogAction
 
     public function index(): string
     {
-        return $this->renderer->render('@blog/index');
+        $posts = $this->postTable->findPaginated();
+
+        return $this->renderer->render('@blog/index', compact('posts'));
     }
 
-    public function show(string $slug): string
+    public function show(ServerRequestInterface $request)
     {
+        $slug = $request->getAttribute('slug');
+        $post = $this->postTable->find($request->getAttribute('id'));
+        if ($post->slug !== $slug) {
+            return $this->redirect('blog.show', [
+                'slug' => $post->slug,
+                'id' => $post->id
+            ]);
+        }
+
         return $this->renderer->render('@blog/show', [
-            'slug' => $slug
+            'post' => $post
         ]);
     }
 }

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="framework@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="framework">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="monsupersite"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="phpmyadmin"/>
+    <schema id="8" parent="1" name="test"/>
+    <table id="9" parent="2" name="agent"/>
+    <table id="10" parent="2" name="attestation_reprise"/>
+    <table id="11" parent="2" name="categorie"/>
+    <table id="12" parent="2" name="conge"/>
+    <table id="13" parent="2" name="contrat"/>
+    <table id="14" parent="2" name="departement"/>
+    <table id="15" parent="2" name="division"/>
+    <table id="16" parent="2" name="mise_a_disposition"/>
+    <table id="17" parent="2" name="permission"/>
+    <table id="18" parent="2" name="prise_service"/>
+    <table id="19" parent="2" name="statut"/>
+    <table id="20" parent="2" name="users"/>
+    <column id="21" parent="9" name="matricule">
+      <Position>1</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="9" name="code_division">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="23" parent="9" name="code_statut">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="9" name="code_categorie">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="9" name="num_dec">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="26" parent="9" name="nom">
+      <Position>6</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="27" parent="9" name="prenom">
+      <Position>7</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="28" parent="9" name="date_naiss">
+      <Position>8</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="29" parent="9" name="sexe">
+      <Position>9</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="30" parent="9" name="situation">
+      <Position>10</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="9" name="diplome">
+      <Position>11</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="32" parent="9" name="mail">
+      <Position>12</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="9" name="date_recrut">
+      <Position>13</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="34" parent="9" name="nb_enfant">
+      <Position>14</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="35" parent="9" name="num_tel">
+      <Position>15</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="36" parent="9" name="reliquat">
+      <Position>16</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="37" parent="9" name="etat">
+      <Position>17</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <key id="38" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>matricule</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="39" parent="10" name="num_at_reprise">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="40" parent="10" name="matricule">
+      <Position>2</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="10" name="date_at_reprise">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="42" parent="10" name="date_reprise">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <key id="43" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>num_at_reprise</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="44" parent="11" name="code_categorie">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="45" parent="11" name="libelle_categorie">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <key id="46" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>code_categorie</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="47" parent="12" name="num_at_conge">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="48" parent="12" name="matricule">
+      <Position>2</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="12" name="date_at_conge">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="50" parent="12" name="date_debut_conge">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="51" parent="12" name="nb_jours_pris">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="52" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>num_at_conge</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="53" parent="13" name="num_contrat">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="54" parent="13" name="matricule">
+      <Position>2</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="13" name="date_contrat">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="56" parent="13" name="duree_contrat">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <key id="57" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>num_contrat</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="58" parent="14" name="code_departement">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="14" name="libelle_departement">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <key id="60" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>code_departement</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="61" parent="15" name="code_division">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="62" parent="15" name="code_departement">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="15" name="libelle_division">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <key id="64" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>code_division</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="65" parent="16" name="num_dec">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="66" parent="16" name="libelle_dec">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="67" parent="16" name="date_dec">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="68" parent="16" name="structure">
+      <Position>4</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <key id="69" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>num_dec</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="70" parent="17" name="num_at_permission">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="71" parent="17" name="matricule">
+      <Position>2</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="17" name="libelle_at_permission">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="73" parent="17" name="date_at_permission">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="74" parent="17" name="date_debut_per">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="75" parent="17" name="nb_jours_per">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="76" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>num_at_permission</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="77" parent="18" name="num_prise">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="78" parent="18" name="matricule">
+      <Position>2</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="18" name="date_prise">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <key id="80" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>num_prise</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="81" parent="19" name="code_statut">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="82" parent="19" name="libelle_statut">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <key id="83" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>code_statut</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="84" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="85" parent="20" name="username">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="86" parent="20" name="password">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="87" parent="20" name="matricule">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="88" parent="20" name="admin">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="89" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
