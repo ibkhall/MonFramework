@@ -9,7 +9,10 @@ return [
     'database.name' => 'monsupersite',
     'views.path' => dirname(__DIR__). '/views',
     'twig.extensions' => [
-        \DI\get(\Framework\Router\RouterTwigExtension::class)
+        \DI\get(\Framework\Router\RouterTwigExtension::class),
+        \DI\get(\Framework\Twig\PagerFantaExtension::class),
+        \DI\get(\Framework\Twig\TextExtension::class),
+        \DI\get(\Framework\Twig\TimeExtension::class)
     ],
     \Framework\Router::class => \DI\object(),
     RendererInterface::class => \DI\factory(TwigRendererFactory::class),
